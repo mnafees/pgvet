@@ -52,6 +52,16 @@ These rules run by default:
 | `not-in-subquery` | error | `NOT IN (SELECT ...)` is broken when the subquery can return NULLs — use `NOT EXISTS` instead |
 | `for-update-no-skip` | warning | `FOR UPDATE` without `SKIP LOCKED` or `NOWAIT` can cause lock contention |
 | `distinct-on-order` | warning | `DISTINCT ON` without a matching leading `ORDER BY` produces non-deterministic results |
+| `null-comparison` | error | `= NULL` or `<> NULL` always yields NULL — use `IS NULL` or `IS NOT NULL` |
+| `update-without-where` | warning | `UPDATE` without `WHERE` updates every row in the table |
+| `delete-without-where` | warning | `DELETE` without `WHERE` deletes every row in the table |
+| `insert-without-columns` | warning | `INSERT` without column list depends on column order — list columns explicitly |
+| `ban-char-type` | warning | `char(n)` pads with spaces — use `text` or `varchar` instead |
+| `timestamp-without-timezone` | warning | `timestamp` without time zone loses timezone context — use `timestamptz` instead |
+| `order-by-ordinal` | warning | `ORDER BY` ordinal position is fragile — use column names or expressions |
+| `group-by-ordinal` | warning | `GROUP BY` ordinal position is fragile — use column names or expressions |
+| `like-starts-with-wildcard` | warning | `LIKE`/`ILIKE` pattern starting with `%` prevents index usage |
+| `offset-without-limit` | warning | `OFFSET` without `LIMIT` returns all remaining rows — likely a mistake |
 
 ### Opt-in rules
 

@@ -8,6 +8,16 @@ func All() []Rule {
 		&NotInSubquery{},
 		&ForUpdateNoSkip{},
 		&DistinctOnOrder{},
+		&NullComparison{},
+		&UpdateWithoutWhere{},
+		&DeleteWithoutWhere{},
+		&InsertWithoutColumns{},
+		&BanCharType{},
+		&TimestampWithoutTimezone{},
+		&OrderByOrdinal{},
+		&GroupByOrdinal{},
+		&LikeStartsWithWildcard{},
+		&OffsetWithoutLimit{},
 	}
 }
 
